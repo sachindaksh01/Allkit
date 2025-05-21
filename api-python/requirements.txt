@@ -1,0 +1,41 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+httpx==0.25.2  # Required for FastAPI TestClient
+playwright==1.40.0  # Required for end-to-end testing
+pytest-playwright==0.4.3  # Playwright plugin for pytest
+locust==2.20.0  # Required for load testing
+psutil==5.9.7  # Required for memory usage monitoring
+python-multipart==0.0.6
+python-jose==3.3.0
+passlib==1.7.4
+bcrypt==4.0.1
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+pydantic==2.5.2
+celery==5.3.6
+redis==5.0.1
+boto3==1.29.3
+pillow==10.1.0
+python-magic==0.4.27
+Wand==0.6.11  # Python binding for ImageMagick
+rembg>=2.0.65
+Pillow>=10.0.0
+PyPDF2>=3.0.0
+pikepdf>=8.0.0  # For PDF compression
+img2pdf==0.6.1
+PyMuPDF>=1.23.0  # For PDF processing
+python-docx>=0.8.11  # For Word document creation
+openpyxl>=3.1.2  # For Excel file creation
+python-pptx>=0.6.21  # For PowerPoint creation
+pdf2image>=1.16.3  # For PDF to image conversion
+# Note: LibreOffice is required for Office document conversion
+# Ubuntu/Debian: sudo apt-get install libreoffice
+# Windows: Download and install from https://www.libreoffice.org/download/download/
+# macOS: brew install libreoffice
+pandas==2.1.4
+tabula-py==2.9.0
+pytesseract==0.3.10
+python-magic-bin==0.4.14
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0 

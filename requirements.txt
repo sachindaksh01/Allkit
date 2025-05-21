@@ -1,0 +1,10 @@
+libreoffice
+ghostscript
+pdfjs-dist
+jszip
+file-saver
+next
+react
+typescript
+tailwindcss
+lucide-react 

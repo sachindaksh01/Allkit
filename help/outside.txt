@@ -1,0 +1,8 @@
+LIbre office
+ghostscript
+
+import sys
+
+soffice_cmd = 'soffice'
+if sys.platform == 'win32':
+    soffice_cmd = r'C:\Program Files\LibreOffice\program\soffice.exe'

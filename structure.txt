@@ -1,0 +1,193 @@
+allkit.io/
+├── frontend/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── tools/
+│   │   │   │   ├── pdf/
+│   │   │   │   │   ├── convert/
+│   │   │   │   │   │   ├── to-word/
+│   │   │   │   │   │   ├── to-excel/
+│   │   │   │   │   │   ├── to-powerpoint/
+│   │   │   │   │   │   ├── to-images/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   ├── from/
+│   │   │   │   │   │   ├── image/
+│   │   │   │   │   │   ├── word/
+│   │   │   │   │   │   ├── excel/
+│   │   │   │   │   │   ├── powerpoint/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   ├── compress/
+│   │   │   │   │   ├── merge/
+│   │   │   │   │   ├── split/
+│   │   │   │   │   ├── organize/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── image/
+│   │   │   │   │   ├── convert/
+│   │   │   │   │   ├── remove-background/
+│   │   │   │   │   ├── compress/
+│   │   │   │   │   ├── resize/
+│   │   │   │   │   ├── crop/
+│   │   │   │   │   ├── rotate/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── calculator/
+│   │   │   │   │   ├── data/
+│   │   │   │   │   │   ├── age/
+│   │   │   │   │   │   ├── date/
+│   │   │   │   │   │   ├── time/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   ├── health/
+│   │   │   │   │   │   ├── bmi/
+│   │   │   │   │   │   ├── calorie/
+│   │   │   │   │   │   ├── pregnancy/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   ├── finance/
+│   │   │   │   │   │   ├── loan/
+│   │   │   │   │   │   ├── interest/
+│   │   │   │   │   │   ├── currency/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   ├── math/
+│   │   │   │   │   │   ├── percentage/
+│   │   │   │   │   │   ├── unit/
+│   │   │   │   │   │   ├── geometry/
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── api/
+│   │   │   │   ├── pdf/
+│   │   │   │   │   ├── convert/
+│   │   │   │   │   │   ├── to-word/
+│   │   │   │   │   │   ├── to-excel/
+│   │   │   │   │   │   ├── to-powerpoint/
+│   │   │   │   │   │   ├── to-images/
+│   │   │   │   │   │   └── route.ts
+│   │   │   │   │   ├── from/
+│   │   │   │   │   │   ├── image/
+│   │   │   │   │   │   ├── word/
+│   │   │   │   │   │   ├── excel/
+│   │   │   │   │   │   ├── powerpoint/
+│   │   │   │   │   │   └── route.ts
+│   │   │   │   │   ├── compress/
+│   │   │   │   │   ├── merge/
+│   │   │   │   │   ├── split/
+│   │   │   │   │   ├── organize/
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── image/
+│   │   │   │   │   ├── convert/
+│   │   │   │   │   ├── remove-background/
+│   │   │   │   │   ├── compress/
+│   │   │   │   │   ├── resize/
+│   │   │   │   │   ├── crop/
+│   │   │   │   │   ├── rotate/
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── calculator/
+│   │   │   │   │   ├── data/
+│   │   │   │   │   ├── health/
+│   │   │   │   │   ├── finance/
+│   │   │   │   │   ├── math/
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── route.ts
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   ├── components/
+│   │   ├── lib/
+│   │   └── styles/
+│   └── public/
+├── api-python/
+│   ├── src/
+│   │   ├── pdf/
+│   │   │   ├── convert/
+│   │   │   │   ├── to_word.py
+│   │   │   │   ├── to_excel.py
+│   │   │   │   ├── to_powerpoint.py
+│   │   │   │   └── to_images.py
+│   │   │   ├── from/
+│   │   │   │   ├── image_to_pdf.py
+│   │   │   │   ├── word_to_pdf.py
+│   │   │   │   ├── excel_to_pdf.py
+│   │   │   │   └── powerpoint_to_pdf.py
+│   │   │   ├── compress.py
+│   │   │   ├── merge.py
+│   │   │   ├── split.py
+│   │   │   └── organize.py
+│   │   ├── image/
+│   │   │   ├── convert.py
+│   │   │   ├── remove_background.py
+│   │   │   ├── compress.py
+│   │   │   ├── resize.py
+│   │   │   ├── crop.py
+│   │   │   └── rotate.py
+│   │   ├── utils/
+│   │   ├── config/
+│   │   └── main.py
+│   ├── tests/
+│   ├── requirements.txt
+│   └── README.md
+├── api-node/
+│   ├── src/
+│   │   ├── calculator/
+│   │   │   ├── data/
+│   │   │   │   ├── ageCalculator.ts
+│   │   │   │   ├── dateCalculator.ts
+│   │   │   │   └── timeCalculator.ts
+│   │   │   ├── health/
+│   │   │   │   ├── bmiCalculator.ts
+│   │   │   │   ├── calorieCalculator.ts
+│   │   │   │   └── pregnancyCalculator.ts
+│   │   │   ├── finance/
+│   │   │   │   ├── loanCalculator.ts
+│   │   │   │   ├── interestCalculator.ts
+│   │   │   │   └── currencyConverter.ts
+│   │   │   └── math/
+│   │   │       ├── percentageCalculator.ts
+│   │   │       ├── unitConverter.ts
+│   │   │       └── geometryCalculator.ts
+│   │   ├── auth/
+│   │   │   ├── authentication.ts
+│   │   │   ├── authorization.ts
+│   │   │   └── session.ts
+│   │   ├── user/
+│   │   │   ├── profile.ts
+│   │   │   ├── settings.ts
+│   │   │   └── dashboard.ts
+│   │   ├── utils/
+│   │   │   ├── fileHandling.ts
+│   │   │   ├── validation.ts
+│   │   │   └── errorHandling.ts
+│   │   ├── config/
+│   │   │   ├── settings.ts
+│   │   │   └── constants.ts
+│   │   └── index.ts
+│   ├── tests/
+│   ├── package.json
+│   └── README.md
+└── docs/
+    ├── api/
+    ├── development/
+    └── deployment/
+
+Backend Tools Distribution:
+
+1. Python API (api-python/):
+   - PDF Tools (convert, compress, merge, split, organize)
+   - Image Tools (convert, remove background, compress, resize, crop, rotate)
+
+2. Node.js API (api-node/):
+   - Calculator Tools:
+     - Data (Age, Date, Time)
+     - Health (BMI, Calorie, Pregnancy)
+     - Finance (Loan, Interest, Currency)
+     - Math (Percentage, Unit, Geometry)
+   - User Management:
+     - Authentication
+     - Authorization
+     - Session Management
+     - Profile
+     - Settings
+     - Dashboard
+   - System:
+     - File Storage
+     - Rate Limiting
+     - Error Logging
+     - Analytics
+     - API Monitoring 

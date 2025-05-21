@@ -1,0 +1,203 @@
+**AllKit Full Website Development Guide**
+
+---
+
+## 1. Overview
+
+AllKit is a large-scale, free, unlimited-use tool platform (350–400+ tools) organized into eight main categories: PDF, Image, Video, Audio, Developer Tools, QR Code, Data Converter, and Security Tools. This guide defines UI/UX standards, folder structure, coding conventions, and scalable processes so Cursor AI can generate and update code seamlessly.
+
+---
+
+## 2. Technology Stack
+
+* **Frontend**: Next.js (TypeScript) + Tailwind CSS
+* **Backend (Python)**: FastAPI for heavy tools (PDF, AI, image, video, audio)
+* **Backend (Node)**: Express.js for JS utilities (text, developer, QR, data-conv, security)
+* **Queue & Background**: Celery + Redis (Python) & Bull (Node)
+* **Storage**: AWS S3 (prod) or local `storage/` (dev)
+* **Database**: PostgreSQL (primary), MongoDB (optional for analytics)
+* **Deployment**: Docker & Docker Compose, CI/CD via GitHub Actions
+
+---
+
+## 3. UI Design Guidelines
+
+1. **Theme**: Provide light & dark mode (dark should be muted, not pure black). Use CSS variables:
+
+   ```css
+   :root { /* light */
+     --bg: #FFFFFF; --text: #1F2937; --primary: #EF4444; /* red */
+   }
+   [data-theme="dark"] { /* dark */
+     --bg: #1F1F1F; --text: #E5E7EB; --primary: #F87171;
+   }
+   ```
+2. **Typography**:
+
+   * Base font: `Inter, sans-serif`
+   * Body text: 1rem (16px)
+   * Headings: H1=2rem, H2=1.5rem, H3=1.25rem
+   * Line-height: 1.6
+3. **Spacing & Layout**:
+
+   * Use consistent spacing: `p-4`, `m-4` etc.
+   * Grid for tool listing: 3–4 columns on desktop, 1–2 on mobile
+   * Mega-menu for Categories: full-width dropdown with category headings & tool links
+4. **Accessibility**:
+
+   * Ensure 4.5:1 contrast
+   * Keyboard navigation for menus, tool forms
+   * `alt` text for images
+
+---
+
+## 4. UX Flows
+
+1. **Homepage**:
+
+   * Header: Logo (left), Menu (Home, Tools Categories (mega), Why Free, Resources (submenu), API)
+   * Hero: Quick tool search bar + category cards
+   * Featured tools section
+   * Footer: Links, copyright
+2. **Category Page**:
+
+   * URL: `/tools/[category]`
+   * List all tools in that category as cards
+   * Filter/search within category
+3. **Tool Page**:
+
+   * URL: `/tools/[category]/[tool-slug]`
+   * Header: Tool name, description
+   * UI: Upload input or parameter form
+   * Action button: Process → shows progress
+   * Result: Download link, preview
+4. **Global**:
+
+   * Auto-delete notice: processed files expire in 20 minutes
+   * Notification toasts for success/error
+
+---
+
+## 5. Folder & File Structure
+
+```
+AllKit/
+├── frontend/
+│   ├── pages/
+│   │   ├── index.tsx
+│   │   └── tools/
+│   │       └── [category]/
+│   │           └── [tool-slug].tsx
+│   ├── components/
+│   │   ├── Layout.tsx
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── ToolCard.tsx
+│   │   ├── MegaMenu.tsx
+│   │   └── ThemeToggle.tsx
+│   ├── styles/
+│   │   └── globals.css
+│   ├── utils/
+│   │   └── api.ts
+│   ├── public/
+│   ├── tailwind.config.js
+│   ├── next.config.js
+│   └── package.json
+│
+├── api-python/
+│   ├── tools/
+│   │   ├── pdf/
+│   │   │   ├── pdf_to_image/
+│   │   │   │   ├── main.py
+│   │   │   │   └── utils.py
+│   │   │   └── compress_pdf/
+│   │   ├── image/
+│   │   ├── video/
+│   │   └── audio/
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── db.py
+│   │   ├── logger.py
+│   │   └── utils.py
+│   ├── main.py
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── api-node/
+│   ├── tools/
+│   │   ├── developer-tools/
+│   │   ├── qr-code/
+│   │   ├── data-converter/
+│   │   └── security-tool/
+│   ├── utils/
+│   ├── server.js
+│   ├── package.json
+│   └── Dockerfile
+│
+├── queue/
+│   ├── celery/
+│   │   ├── celery_app.py
+│   │   └── tasks/
+│   │       ├── tool_tasks.py
+│   │       └── cleanup.py
+│   └── bull/
+│       ├── bull_worker.js
+│       └── queues/
+│           ├── toolQueue.js
+│           └── cleanupQueue.js
+│
+├── storage/
+│   ├── uploads/
+│   └── outputs/
+│
+├── database/
+│   ├── postgres/
+│   │   ├── migrations/
+│   │   └── models/
+│   └── mongo/
+│       ├── connection.js
+│       └── models/
+│
+├── .env
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## 6. Coding Conventions
+
+* **Naming**: kebab-case for slugs, camelCase for JS/TS, snake\_case for Python
+* **API Routes**:
+
+  * Python: `POST /api/pdf/to-image`
+  * Node: `POST /api/text/slugify`
+* **Error Handling**: consistent response `{ success: false, error: "..." }`
+* **Logging**: use `winston` (Node) and `structlog` (Python)
+
+---
+
+## 7. Adding a New Tool
+
+1. **Decide category** (e.g., `video`)
+2. **Create backend module**:
+
+   * Python: `api-python/tools/video/new_tool/` with `main.py` and `utils.py`
+   * Node: `api-node/tools/...` as needed
+3. **Register route** in `main.py` or `server.js`
+4. **Add frontend page**: `frontend/pages/tools/video/new-tool.tsx`
+5. **Add to mega-menu**: update `components/MegaMenu.tsx` categories list
+6. **Write tests** and **document** in `/docs`
+
+---
+
+## 8. Cursor AI Upload Instructions
+
+1. Upload this guide as plaintext to Cursor AI.
+2. Ask Cursor AI to scaffold each folder and file stub.
+3. Provide examples (e.g., PDF-to-image code) for reference.
+4. Iterate tool by tool: "Generate code for tool X in Python..."
+
+---
+
+*Use this guide as your single source of truth. Follow the folder structure and naming conventions strictly so that adding, updating, or removing tools remains frictionless and fully automated via Cursor AI.*

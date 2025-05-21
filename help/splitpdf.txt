@@ -1,0 +1,144 @@
+**Split PDF Tool Specification**
+
+**1. Overview**
+The "Split PDF" tool enables users to break a single PDF document into multiple independent PDF files according to page ranges, page count, or file size constraints. Users can quickly upload one PDF file via drag‑and‑drop or file selector, configure split parameters through an intuitive control panel, preview results, and download the outputs as individual files or a ZIP archive.
+
+---
+
+**2. File Input**
+
+* **Drag & Drop Area**: A prominently displayed drop zone labeled "Drag & drop a PDF here or click to select a file."
+
+  * Accepts only one PDF at a time.
+  * Shows an upload icon and helper text.
+  * Highlights when file is dragged over.
+* **File Validation**:
+
+  * Only `.pdf` MIME/type allowed.
+  * Maximum file size check (e.g., 100 MB).
+  * On invalid file, display error toast: "Please select a valid PDF under 100 MB."
+
+---
+
+**3. Control Panel Layout**
+After successful PDF selection, a side panel slides in from the left.
+
+* **Header**:
+
+  * Title: **Split Control** (bold, 18 px).
+
+- **Navigation Tabs** or **Radio Options** (inline):
+
+  1. **Split by Range**
+  2. **Split by Pages**
+  3. **Split by Size**
+
+Selected option’s settings appear below. by default split by range
+
+---
+
+**4. Option A: Split by Range**
+
+* **Description**: Divide the PDF into one or more custom page ranges.
+* **Inputs**:
+
+  * For each range: two number inputs labeled **From** and **To**.
+
+    * Default Range1: From 1, To total pages.
+    * Inputs validate: 1 ≤ From < To ≤ total pages.
+  * **Add Range** button (+) appends an additional set of From/To inputs (Range2, Range3, ...).
+  * **Remove Range** button (–) on each extra range to delete.
+* **Preview**:
+
+  * When a range is valid, display an embedded thumbnail preview showing pages in that range.
+  * Each range preview collapsible/expandable.
+* **Actions**:
+
+  * **Split** button (primary): splits the PDF for each range.
+  * On click, show a toast: "Splitting PDF..." and disable inputs.
+* **Output**:
+
+  * Download options appear once splitting completes:
+
+    * **Download All**: Triggers multiple file downloads (one per range).
+    * **Download ZIP**: Generates and downloads a single ZIP archive containing all split PDFs.
+
+---
+
+**5. Option B: Split by Pages**
+
+* **Description**: Extract every page as a separate PDF or group pages into equal-sized chunks.
+* **Sub‑options**:
+
+  1. **Extract All Pages**
+
+     * No additional inputs.
+     * On selection, PDF will be split into single‑page PDFs for every page.
+  2. **Select Number of Parts**
+
+     * Numeric input labeled **Number of Parts** with placeholder "e.g. 3".
+     * Validates: integer ≥ 2.
+     * Divides total pages by this number into equal or nearly equal chunks.
+* **Preview**:
+
+  * For **Extract All**, show thumbnails of first 5 pages.
+  * For **Select Number of Parts**, show thumbnails and page ranges for each part.
+* **Actions & Output**:
+
+  * **Split** button: performs extraction.
+  * On completion, **Download All** and **Download ZIP** options appear, as in Range mode.
+
+---
+
+**6. Option C: Split by Size**
+
+* **Description**: Automatically cut the PDF into segments so that each file does not exceed a specified size.
+* **Inputs**:
+
+  * Display **Original File Size** (e.g. 316.78 KB) and **Total Pages** (e.g. 7).
+  * **Maximum Size per File**: two-part control:
+
+    1. Numeric input (e.g. `100`).
+    2. Unit toggle (KB/MB).
+  * Validate: size ≥ 10 KB and ≤ original size.
+* **Algorithm**:
+
+  * Greedy pack pages until adding the next page would exceed the limit, then start a new segment.
+* **Preview**:
+
+  * Show estimated split plan: Segment 1: pages 1–3 (95 KB), Segment 2: pages 4–7 (98 KB), etc.
+* **Actions & Output**:
+
+  * **Split** button triggers operation and displays **Download All** / **Download ZIP** upon completion.
+
+---
+
+**7. Global Features & Enhancements**
+
+* **Progress Indicators**:
+
+  * Show progress bar during splitting (per-file progress).
+* **Error Handling**:
+
+  * If splitting fails for any range/segment, display an error message and allow retry.
+* **Performance**:
+
+  * Process in Web Worker to avoid UI blocking.
+  * Limit to 200 pages or 50 MB in browser; prompt server‑side fallback if exceeded.
+* **Accessibility**:
+
+  * All controls keyboard‑navigable, ARIA labels on buttons and inputs.
+* **Responsiveness**:
+
+  * Panel collapses under 600 px width; drag/drop area full‑width.
+* **Mobile Support**:
+
+  * Touch‑friendly controls; pinch‑to‑zoom in preview.
+* **Internationalization**:
+
+  * All labels and messages loaded from locale files (English, Hindi, etc.).
+
+---
+
+**8. Summary**
+This specification covers every user interaction from PDF selection through advanced split options, preview, splitting, and download. By following these requirements, the Split PDF tool will deliver a robust, user‑friendly experience with no missing features.

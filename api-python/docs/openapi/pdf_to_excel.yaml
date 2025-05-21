@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: PDF to Excel Converter API
+  description: API for converting PDF files to Excel format
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /api/pdf/convert/to-excel:
+    post:
+      summary: Convert PDF to Excel
+      description: Converts a PDF file to Excel format using table extraction or OCR
+      operationId: convertPdfToExcel
+      tags:
+        - PDF Conversion
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: PDF file to convert (max 50MB)
+              required:
+                - file
+      responses:
+        '200':
+          description: Successful conversion
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+                example: attachment; filename="converted.xlsx"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid file format"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Conversion failed"
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+      required:
+        - error
+
+tags:
+  - name: PDF Conversion
+    description: PDF conversion operations 

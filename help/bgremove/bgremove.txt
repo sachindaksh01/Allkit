@@ -1,0 +1,30 @@
+📦 Recommended “AllKit” Pipeline (Open-Source)
+Segmentation
+
+Run rembg with the isnet-general-use model for a finer, hair-friendly binary mask.
+
+
+rembg i -m isnet-general-use input.jpg mask.png
+Trimap Generation
+
+In Python/OpenCV, take that mask, do a small dilation and erosion to get a three-region trimap (sure-foreground, sure-background, unknown).
+
+Deep Matting
+
+Feed your original image + trimap into MODNet (or FBA Matting) to predict a soft alpha matte.
+
+Post-Processing
+
+Apply an OpenCV guided filter and a morphological closing to smooth and repair small holes.
+
+Compositing (optional)
+
+Merge your new alpha matte with any background—or export as a clean PNG.
+
+With this, you get:
+
+True soft edges (no jagged hairlines)
+
+No paywalls and full privacy (runs on your servers)
+
+Zero license fees
