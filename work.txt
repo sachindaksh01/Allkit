@@ -25,12 +25,16 @@ PDF Tools
    - Backend: ⏳ Pending
 
 5. Image to PDF Converter
-   - Frontend: ⏳ Pending
-   - Backend: ⏳ Pending
+   - Frontend: ✅ Completed
+   - Backend: ❌ Not Required (Frontend Only)
+   - Testing: ⏳ Pending
+   - Documentation: ⏳ Pending
 
 6. Word to PDF Converter
-   - Frontend: ⏳ Pending
-   - Backend: ⏳ Pending
+   - Frontend: ✅ Completed
+   - Backend: 🔄 In Progress (Debugging 404 error, requires manual update of app/main.py)
+   - Testing: ⏳ Pending
+   - Documentation: ⏳ Pending
 
 7. Excel to PDF Converter
    - Frontend: ⏳ Pending

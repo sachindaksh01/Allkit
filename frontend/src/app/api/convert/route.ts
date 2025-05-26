@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     backendFormData.append("quality", quality.toString())
     backendFormData.append("scale", scale.toString())
 
-    const response = await fetch("http://localhost:8000/tools/image/converter/convert", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tools/image/converter/convert`, {
       method: "POST",
       body: backendFormData,
     })

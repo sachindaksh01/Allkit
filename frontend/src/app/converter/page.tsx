@@ -70,7 +70,7 @@ export default function ImageConverterPage() {
       formData.append('format', targetFormat)
       formData.append('quality', quality.toString())
 
-      const response = await fetch('http://localhost:8000/convert', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/convert`, {
         method: 'POST',
         body: formData,
       })

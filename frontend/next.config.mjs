@@ -4,11 +4,11 @@ const nextConfig = {
     return [
       {
         source: '/api/convert',
-        destination: 'http://localhost:8000/tools/image/converter/convert'
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/tools/image/converter/convert`
       },
       {
         source: '/api/remove-background',
-        destination: 'http://localhost:8000/tools/image/bgremover/remove-background'
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/tools/image/bgremover/remove-background`
       }
     ];
   }

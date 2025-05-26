@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       backendFormData.append("bg_color", bgColor)
     }
 
-    const response = await fetch("http://localhost:8000/tools/image/bgremover/remove-background", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tools/image/bgremover/remove-background`, {
       method: "POST",
       body: backendFormData,
     })

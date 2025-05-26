@@ -33,14 +33,14 @@ Project Priority List
        - Testing: ⏳ Pending
 
    1.4 Image to PDF Converter
-       - Frontend Implementation: ⏳ Pending
-       - Backend Implementation: ⏳ Pending
-       - API Integration: ⏳ Pending
+       - Frontend Implementation: ✅ Completed
+       - Backend Implementation: ❌ Not Required
+       - API Integration: ✅ Completed
        - Testing: ⏳ Pending
 
    1.5 Word to PDF Converter
-       - Frontend Implementation: ⏳ Pending
-       - Backend Implementation: ⏳ Pending
+       - Frontend Implementation: ✅ Completed
+       - Backend Implementation: 🔄 In Progress (Debugging 404 error, requires manual update of app/main.py)
        - API Integration: ⏳ Pending
        - Testing: ⏳ Pending
 
@@ -179,6 +179,12 @@ Other Tools:
    - Background Remover: ⏳ Pending
    - Image Converter: ⏳ Pending
    - Image Compressor: ⏳ Pending
+
+4. Word to PDF Converter
+   - Frontend: ✅ Completed
+   - Backend: 🔄 In Progress (Debugging 404 error, requires manual update of app/main.py)
+   - Testing: ⏳ Pending
+   - Documentation: ⏳ Pending
 
 Legend:
 ✅ - Completed

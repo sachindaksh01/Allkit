@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     files.forEach(file => backendFormData.append('files', file));
     backendFormData.append('type', type);
 
-    const response = await fetch('http://localhost:8000/api/convert-to-pdf', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/convert-to-pdf`, {
       method: 'POST',
       body: backendFormData
     });

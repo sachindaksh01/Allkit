@@ -13,6 +13,9 @@ import uuid
 from PyPDF2 import PdfReader, PdfWriter
 import json
 
+# Import the convert_word_to_pdf function
+from src.pdf.from.word_to_pdf import convert_word_to_pdf
+
 app = FastAPI(
     title="AllKit API",
     description="Backend API for AllKit tools platform",
@@ -27,6 +30,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include the word_to_pdf endpoint directly
+app.post("/api/pdf/from/word")(convert_word_to_pdf)
 
 # Create temp directory if it doesn't exist
 TEMP_DIR = "temp"
@@ -181,7 +187,7 @@ async def organize_pdf(
     writer = PdfWriter()
     for page in page_order:
         if page.get("isBlank"):
-            writer.add_blank_page(width=595, height=842)  # A4 size
+            writer.add_blank_page(width=595, height=842) # A4 size
         else:
             file_path = file_map[page["fileName"]]
             reader = PdfReader(file_path)

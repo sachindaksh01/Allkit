@@ -106,7 +106,7 @@ export default function BackgroundRemover() {
     formData.append('format', 'png')
 
     try {
-      const response = await fetch('http://localhost:8000/tools/image/bgremover/remove-background', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tools/image/bgremover/remove-background`, {
         method: 'POST',
         body: formData,
       })

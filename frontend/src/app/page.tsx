@@ -143,32 +143,18 @@ const tools: Record<string, ToolCategory> = {
         icon: Eraser
       },
       {
-        title: 'Image Compressor',
-        description: 'Compress images without losing quality',
-        href: '/tools/image/compress',
+        title: 'Image Compressor/Resize',
+        description: 'Compress or resize images without losing quality',
+        href: '/tools/image/compressor-resize',
         status: 'development',
         icon: MinusCircle
       },
       {
-        title: 'Image Resize',
-        description: 'Resize images to different dimensions',
-        href: '/tools/image/resize',
-        status: 'development',
-        icon: Maximize2
-      },
-      {
-        title: 'Image Crop',
-        description: 'Crop images to desired size',
-        href: '/tools/image/crop',
-        status: 'development',
-        icon: Crop
-      },
-      {
-        title: 'Image Rotate',
-        description: 'Rotate images to different angles',
-        href: '/tools/image/rotate',
-        status: 'development',
-        icon: RotateCw
+        title: "Image Crop & Rotate",
+        description: "Crop and rotate your images with precision. Perfect for social media, websites, and more.",
+        icon: Crop,
+        href: "/tools/image/crop-rotate",
+        status: 'development'
       }
     ]
   },
@@ -271,7 +257,7 @@ export default function Home() {
       <div className="flex flex-col items-center text-center space-y-4 mb-12">
         <h1 className="text-5xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">AllKit: Tools in Your Pocket</h1>
         <p className="max-w-[700px] text-muted-foreground md:text-xl">
-          The world's best free online toolkit for images, PDFs, documents, code, and more. Trusted by thousands of users worldwide. No sign-up, no hassle—just powerful tools at your fingertips.
+          The world's best free online toolkit for images, PDFs, documents, code, and more. Trusted by millions of users worldwide. No sign-up, no hassle—just powerful tools at your fingertips.
         </p>
       </div>
 

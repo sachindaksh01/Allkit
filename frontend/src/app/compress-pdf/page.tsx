@@ -83,7 +83,7 @@ export default function CompressPDF() {
           return prev + 10;
         });
       }, 500);
-      const response = await fetch('http://localhost:8000/tools/pdf/compress-pdf', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tools/pdf/compress-pdf`, {
         method: 'POST',
         body: formData,
       });
